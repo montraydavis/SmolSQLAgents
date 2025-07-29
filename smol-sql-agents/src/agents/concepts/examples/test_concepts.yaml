@@ -1,0 +1,128 @@
+concepts:
+  - name: "customer_analysis"
+    description: "Analyze customer data including account activity, balances, and demographics"
+    target: ["customers", "accounts", "transactions", "loans"]
+    instructions: |
+      - Include customer identification and contact information
+      - Calculate total account balances and transaction frequency
+      - Consider customer segmentation and demographics
+      - Apply appropriate date filters for analysis periods
+      - Group results by customer categories when relevant
+    required_joins:
+      - "customers.customer_id = accounts.customer_id"
+      - "accounts.account_id = transactions.account_id"
+      - "customers.customer_id = loans.customer_id"
+    examples:
+      - query: "List all customers with their total account balances"
+        context: "Customer financial overview"
+        business_logic: "Join customers and accounts, sum balances per customer"
+        expected_tables: ["customers", "accounts"]
+      - query: "Show transaction history for each customer"
+        context: "Customer transaction analysis"
+        business_logic: "Join customers, accounts, and transactions; list transactions per customer"
+        expected_tables: ["customers", "accounts", "transactions"]
+      - query: "Which customers have active loans?"
+        context: "Loan customer identification"
+        business_logic: "Join customers and loans, filter for active status"
+        expected_tables: ["customers", "loans"]
+      - query: "Find customers who opened accounts in the last year"
+        context: "Recent customer acquisition"
+        business_logic: "Filter accounts by open_date, join with customers"
+        expected_tables: ["customers", "accounts"]
+
+  - name: "account_activity"
+    description: "Analyze account balances, types, and recent activity"
+    target: ["accounts", "transactions", "customers"]
+    instructions: |
+      - Calculate current and average balances
+      - Segment by account type and status
+      - Include recent transaction activity
+      - Apply time-based filters for recent activity
+      - Group by branch or customer as needed
+    required_joins:
+      - "accounts.account_id = transactions.account_id"
+      - "accounts.customer_id = customers.customer_id"
+    examples:
+      - query: "Show all active accounts with their current balances"
+        context: "Account status and balances"
+        business_logic: "Filter accounts by status, display balances"
+        expected_tables: ["accounts"]
+      - query: "List accounts with the highest number of transactions in the past month"
+        context: "Active account identification"
+        business_logic: "Join accounts and transactions, count transactions per account, filter by date"
+        expected_tables: ["accounts", "transactions"]
+      - query: "Find savings accounts with balances over $10,000"
+        context: "High-value savings accounts"
+        business_logic: "Filter accounts by type and balance"
+        expected_tables: ["accounts"]
+
+  - name: "branch_performance"
+    description: "Evaluate branch activity, employee count, and customer engagement"
+    target: ["branches", "employees", "accounts", "customers"]
+    instructions: |
+      - Count number of employees per branch
+      - Calculate total accounts and balances per branch
+      - Analyze customer distribution by branch
+      - Include branch contact and location information
+    required_joins:
+      - "branches.branch_id = employees.branch_id"
+      - "branches.branch_id = accounts.branch_id"
+      - "accounts.customer_id = customers.customer_id"
+    examples:
+      - query: "List all branches with number of employees and total account balances"
+        context: "Branch resource and financial overview"
+        business_logic: "Join branches, employees, and accounts; aggregate counts and balances"
+        expected_tables: ["branches", "employees", "accounts"]
+      - query: "Show customer count per branch"
+        context: "Branch customer engagement"
+        business_logic: "Join branches, accounts, and customers; count unique customers per branch"
+        expected_tables: ["branches", "accounts", "customers"]
+
+  - name: "loan_analysis"
+    description: "Analyze loan distribution, status, and customer loan activity"
+    target: ["loans", "customers"]
+    instructions: |
+      - Calculate total and average loan amounts
+      - Segment by loan type and status
+      - Identify customers with multiple loans
+      - Apply filters for active, paid off, or defaulted loans
+    required_joins:
+      - "loans.customer_id = customers.customer_id"
+    examples:
+      - query: "Show all active loans with customer names"
+        context: "Active loan listing"
+        business_logic: "Join loans and customers, filter for active status"
+        expected_tables: ["loans", "customers"]
+      - query: "Find customers with more than one loan"
+        context: "Multiple loan customers"
+        business_logic: "Group loans by customer, count, filter for count > 1"
+        expected_tables: ["loans", "customers"]
+      - query: "Calculate average loan amount by loan type"
+        context: "Loan type analysis"
+        business_logic: "Group loans by type, calculate average principal"
+        expected_tables: ["loans"]
+
+  - name: "card_activity"
+    description: "Monitor card issuance, status, and account linkage"
+    target: ["cards", "accounts", "customers"]
+    instructions: |
+      - List all active cards and their types
+      - Link cards to account and customer information
+      - Identify expired or lost cards
+      - Analyze card distribution by account type
+    required_joins:
+      - "cards.account_id = accounts.account_id"
+      - "accounts.customer_id = customers.customer_id"
+    examples:
+      - query: "List all active debit and credit cards with account and customer info"
+        context: "Card issuance overview"
+        business_logic: "Join cards, accounts, and customers; filter for active status"
+        expected_tables: ["cards", "accounts", "customers"]
+      - query: "Show cards that are expired or lost"
+        context: "Inactive card identification"
+        business_logic: "Filter cards by status"
+        expected_tables: ["cards"]
+      - query: "Count number of cards per account type"
+        context: "Card distribution analysis"
+        business_logic: "Join cards and accounts, group by account type, count cards"
+        expected_tables: ["cards", "accounts"]
