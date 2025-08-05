@@ -1,0 +1,19 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# SQL Agents dependencies
+smolagents
+litellm
+SQLAlchemy
+psycopg2-binary
+python-dotenv
+jinja2
+chromadb
+openai
+numpy
+tiktoken
+tenacity
+pyodbc
+sqlparse
+flask
+flask-cors
