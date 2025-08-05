@@ -4,6 +4,28 @@
 
 > **🎯 Mission:** Building the definitive suite of AI agents that understand, analyze, and interact with databases like senior data engineers — completely autonomously.
 
+| Screenshot                                          | Screenshot                                          |
+| --------------------------------------------------- | --------------------------------------------------- |
+| ![Screenshot 2](./docs/assets/documentation-ss.png) | ![Screenshot 4](./docs/assets/query-ss.png)         |
+| ![Screenshot 3](./docs/assets/schema-ss.png)        | ![Screenshot 5](./docs/assets/relationships-ss.png) |
+| ![Screenshot 6](./docs/assets/table-details-ss.png) |                                                     |
+
+### Running Front-End (React-Node)
+
+```bash
+cd web-ui/frontend
+npm install
+npm start
+```
+
+### Running Back-End (Flask)
+
+```bash
+cd smol-sql-agents/backend
+pip install -r smol-sql-agents/backend/requirements.txt
+python smol-sql-agents/backend/app.py
+```
+
 ---
 
 ## 🚀 What We're Building
@@ -23,15 +45,15 @@
 
 Our suite consists of **7 specialized agents** that work together like a world-class data team:
 
-| Agent | Purpose | Superpower |
-|-------|---------|------------|
-| **🎯 Core Agent** | Documentation orchestrator | Autonomously discovers and documents your entire database |
-| **🔍 Indexer Agent** | Semantic search engine | Makes your database searchable in plain English |
-| **🕵️ Entity Recognition** | Database consultant | Identifies exactly what you're looking for |
-| **💼 Business Context** | Domain expert | Understands your business logic and constraints |
-| **🔤 NL2SQL Agent** | SQL translator | Converts English to perfect, validated SQL |
-| **🔄 Integration Agent** | Pipeline orchestrator | Coordinates the entire query-to-result flow |
-| **⚡ Batch Manager** | Performance optimizer | Handles enterprise-scale operations efficiently |
+| Agent                        | Purpose                    | Superpower                                                |
+| ---------------------------- | -------------------------- | --------------------------------------------------------- |
+| **🎯 Core Agent**           | Documentation orchestrator | Autonomously discovers and documents your entire database |
+| **🔍 Indexer Agent**        | Semantic search engine     | Makes your database searchable in plain English           |
+| **🕵️ Entity Recognition** | Database consultant        | Identifies exactly what you're looking for                |
+| **💼 Business Context**     | Domain expert              | Understands your business logic and constraints           |
+| **🔤 NL2SQL Agent**         | SQL translator             | Converts English to perfect, validated SQL                |
+| **🔄 Integration Agent**    | Pipeline orchestrator      | Coordinates the entire query-to-result flow               |
+| **⚡ Batch Manager**         | Performance optimizer      | Handles enterprise-scale operations efficiently           |
 
 ### 🧠 Core Philosophy
 
@@ -113,15 +135,15 @@ graph TB
 
 ### 🎯 Agent Capabilities Matrix
 
-| Agent | Primary Role | Key Capabilities | Input | Output |
-|-------|-------------|------------------|-------|--------|
-| **Core Agent** | 📋 Documentation Orchestrator | Schema discovery, Business inference, State management | Table names | Structured documentation |
-| **Indexer Agent** | 🔍 Vector Operations | Embedding generation, Semantic search, Index management | Documentation data | Search results |
-| **Entity Recognition Agent** | 🎯 Query Analysis | Multi-factor relevance scoring, Entity identification | Natural language query | Applicable entities |
-| **Business Context Agent** | 💼 Domain Guidance | Concept matching, Join validation, Example generation | Entities + Query | Business context |
-| **NL2SQL Agent** | 🔤 SQL Generation | T-SQL conversion, Validation, Execution | Query + Context | Validated SQL |
-| **Integration Agent** | 🔄 Pipeline Orchestration | End-to-end coordination, Error handling | User query | Complete results |
-| **Batch Manager** | ⚡ Performance Optimization | Batch processing, Cost estimation | Large datasets | Processing stats |
+| Agent                        | Primary Role                   | Key Capabilities                                        | Input                  | Output                   |
+| ---------------------------- | ------------------------------ | ------------------------------------------------------- | ---------------------- | ------------------------ |
+| **Core Agent**               | 📋 Documentation Orchestrator | Schema discovery, Business inference, State management  | Table names            | Structured documentation |
+| **Indexer Agent**            | 🔍 Vector Operations          | Embedding generation, Semantic search, Index management | Documentation data     | Search results           |
+| **Entity Recognition Agent** | 🎯 Query Analysis             | Multi-factor relevance scoring, Entity identification   | Natural language query | Applicable entities      |
+| **Business Context Agent**   | 💼 Domain Guidance            | Concept matching, Join validation, Example generation   | Entities + Query       | Business context         |
+| **NL2SQL Agent**             | 🔤 SQL Generation             | T-SQL conversion, Validation, Execution                 | Query + Context        | Validated SQL            |
+| **Integration Agent**        | 🔄 Pipeline Orchestration     | End-to-end coordination, Error handling                 | User query             | Complete results         |
+| **Batch Manager**            | ⚡ Performance Optimization    | Batch processing, Cost estimation                       | Large datasets         | Processing stats         |
 
 ### 🔗 Inter-Agent Communication
 

@@ -1,0 +1,230 @@
+.documentation-explorer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.explorer-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.search-container {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.statistics-panel {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 0.375rem;
+  border: 1px solid #e9ecef;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d6efd;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+.search-results {
+  background-color: #fff3cd;
+  border-bottom: 1px solid #ffeaa7;
+}
+
+.documentation-tree {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 300px;
+}
+
+.quick-actions-panel {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
+
+.folder-section {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.folder-section:last-child {
+  border-bottom: none;
+}
+
+.folder-content {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.list-group-item {
+  border: none;
+  border-radius: 0;
+  transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef;
+}
+
+.list-group-item:active {
+  background-color: #dee2e6;
+}
+
+.folder-section .list-group-item {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.folder-content .list-group-item {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.folder-content .list-group-item:hover {
+  background-color: #e9ecef;
+}
+
+.badge {
+  font-size: 0.75em;
+}
+
+.text-end .badge {
+  margin-left: 0.25rem;
+}
+
+/* Quick Actions Styling */
+.quick-actions-panel .btn {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.quick-actions-panel .btn i {
+  font-size: 0.875rem;
+}
+
+/* Statistics Panel Styling */
+.statistics-panel .row {
+  margin: 0;
+}
+
+.statistics-panel .col-6 {
+  padding: 0 0.25rem;
+}
+
+/* Header Styling */
+.explorer-header h6 {
+  color: #495057;
+  font-weight: 600;
+}
+
+.explorer-header .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Scrollbar styling */
+.documentation-tree::-webkit-scrollbar {
+  width: 6px;
+}
+
+.documentation-tree::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.documentation-tree::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.documentation-tree::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .statistics-panel .row {
+    margin: 0 -0.25rem;
+  }
+  
+  .statistics-panel .col-6 {
+    padding: 0 0.25rem;
+  }
+  
+  .stat-number {
+    font-size: 1.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Animation for collapsible panels */
+.statistics-panel,
+.quick-actions-panel {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects for stat items */
+.stat-item:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effects */
+.quick-actions-panel .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus states */
+.explorer-header .btn:focus,
+.quick-actions-panel .btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Empty state styling */
+.documentation-tree:empty::after {
+  content: "No documentation available";
+  display: block;
+  text-align: center;
+  color: #6c757d;
+  padding: 2rem;
+  font-style: italic;
+}
+
+/* Loading state */
+.documentation-explorer.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Search results styling */
+.search-results .list-group-item {
+  border-left: 3px solid #ffc107;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.search-results .list-group-item:hover {
+  border-left-color: #ffca2c;
+  background-color: #fff8e1;
+} 

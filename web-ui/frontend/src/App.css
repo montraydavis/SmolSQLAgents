@@ -1,0 +1,331 @@
+/* Splash Screen Styles */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: white;
+}
+
+.splash-content {
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.splash-logo i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.splash-logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.splash-logo p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.splash-status {
+  margin: 2rem 0;
+}
+
+.splash-status h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.splash-footer {
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+/* Additional CSS for improved Documentation Explorer */
+
+/* Query Input Button Improvements */
+.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+}
+
+.btn-info:hover:not(:disabled) {
+  background-color: #138496;
+  border-color: #117a8b;
+  color: white;
+}
+
+.btn-info:disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  opacity: 0.8;
+}
+
+/* Spinner improvements */
+.spinner-border-sm {
+  border-width: 0.125em;
+}
+
+/* Input group button styling */
+.input-group .btn {
+  border-left: none;
+  box-shadow: none;
+}
+
+.input-group .btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+}
+
+/* Documentation tree improvements */
+.list-group-item {
+  transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+/* Folder icons with better styling */
+.bi-folder2,
+.bi-folder2-open {
+  color: #6c757d;
+  transition: color 0.2s ease;
+}
+
+.list-group-item:hover .bi-folder2,
+.list-group-item:hover .bi-folder2-open {
+  color: #495057;
+}
+
+/* Search results styling */
+.documentation-search-result {
+  border-left: 3px solid transparent;
+  transition: border-left-color 0.2s ease;
+}
+
+.documentation-search-result:hover {
+  border-left-color: #007bff;
+}
+
+/* Table and relationship items */
+.documentation-item {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  margin: 0.125rem 0;
+}
+
+.documentation-item:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+/* Badge improvements */
+.badge.bg-light {
+  border: 1px solid #dee2e6;
+}
+
+/* Modal improvements for item details */
+.modal-body .table {
+  font-size: 0.875rem;
+}
+
+.modal-body .table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  border-top: none;
+}
+
+.modal-body .table code {
+  background-color: #f8f9fa;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+}
+
+/* Key indicators */
+.bi-key-fill {
+  font-size: 0.75rem;
+}
+
+/* Quick actions button group */
+.modal-body .d-grid .btn {
+  text-align: left;
+}
+
+.modal-body .d-grid .btn i {
+  width: 1rem;
+}
+
+/* Metadata list styling */
+.modal-body .list-unstyled li {
+  padding: 0.125rem 0;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.modal-body .list-unstyled li:last-child {
+  border-bottom: none;
+}
+
+/* Loading states */
+.documentation-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+}
+
+.documentation-loading .spinner-border {
+  margin-bottom: 1rem;
+}
+
+/* Error states */
+.documentation-error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.documentation-error i {
+  margin-right: 0.5rem;
+}
+
+/* Empty states */
+.documentation-empty {
+  text-align: center;
+  padding: 1.5rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.documentation-empty i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0.5;
+}
+
+/* Search input improvements */
+.documentation-search {
+  position: relative;
+}
+
+.documentation-search .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Tab improvements */
+.nav-tabs .nav-link {
+  color: #6c757d;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* Relationship type badges */
+.relationship-type-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Column type badges */
+.column-type-badge {
+  font-size: 0.7rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Relevance score styling */
+.relevance-score {
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 35px;
+  text-align: center;
+}
+
+/* Improved responsiveness */
+@media (max-width: 768px) {
+  .documentation-tree {
+    font-size: 0.875rem;
+  }
+  
+  .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+  
+  .modal-body .row {
+    flex-direction: column;
+  }
+  
+  .modal-body .col-md-4 {
+    margin-top: 1rem;
+    border-top: 1px solid #dee2e6;
+    padding-top: 1rem;
+  }
+}
+
+/* Animation for expanding/collapsing folders */
+.folder-content {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.folder-content.collapsed {
+  max-height: 0;
+}
+
+.folder-content.expanded {
+  max-height: 1000px; /* Adjust as needed */
+}
+
+/* Highlight effect for selected items */
+.documentation-item.selected {
+  background-color: #cce5ff;
+  border-left: 3px solid #007bff;
+}
+
+/* Better scrolling for long lists */
+.documentation-tree {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for documentation tree */
+.documentation-tree::-webkit-scrollbar {
+  width: 6px;
+}
+
+.documentation-tree::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+.documentation-tree::-webkit-scrollbar-thumb {
+  background: #dee2e6;
+  border-radius: 3px;
+}
+
+.documentation-tree::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}
+
+/* Fix for icon alignment */
+.list-group-item i {
+  vertical-align: middle;
+}
