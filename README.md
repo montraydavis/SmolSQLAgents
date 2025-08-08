@@ -3,6 +3,10 @@
 ## The Most Powerful Open-Source Autonomous SQL Agents
 
 > **🎯 Mission:** Building the definitive suite of AI agents that understand, analyze, and interact with databases like senior data engineers — completely autonomously.
+>
+> - Auto Discover Schema
+> - Auto Discover Relationships
+> - Auto Generate Documentation
 
 | Screenshot                                          | Screenshot                                          |
 | --------------------------------------------------- | --------------------------------------------------- |
