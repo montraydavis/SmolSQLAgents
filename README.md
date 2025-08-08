@@ -7,6 +7,8 @@
 > - Auto Discover Schema
 > - Auto Discover Relationships
 > - Auto Generate Documentation
+> - Natural Language 2 SQL
+> - RAG Search
 
 | Screenshot                                          | Screenshot                                          |
 | --------------------------------------------------- | --------------------------------------------------- |
