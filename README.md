@@ -1,4 +1,4 @@
-# Smol-SQL Agents Suite
+# Smol-SQL Agents Suite [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/montraydavis/SmolSQLAgents)
 
 ## The Most Powerful Open-Source Autonomous SQL Agents
 
