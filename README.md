@@ -670,6 +670,166 @@ graph TB
     BusinessInstructions -.-> NL2SQLAgent[NL2SQL Agent]
 ```
 
+### Business Context
+
+Business Context is a critical component that enhances SQL generation by incorporating domain-specific knowledge, business rules, and organizational concepts. It bridges the gap between technical database structures and real-world business requirements, ensuring generated SQL queries align with business logic and constraints.
+
+#### Purpose and Benefits
+
+Business context serves multiple essential functions:
+
+- **Domain Knowledge Integration**: Incorporates industry-specific terminology and business concepts into query generation
+- **Business Rule Enforcement**: Applies organizational constraints and validation rules to ensure compliance
+- **Concept Matching**: Automatically matches user queries to relevant business concepts and patterns
+- **Join Validation**: Verifies that required table relationships can be satisfied with available entities
+- **Example Retrieval**: Provides relevant query examples and patterns based on business context
+
+#### How Business Context Works
+
+The Business Context Agent follows a sophisticated matching and validation process:
+
+1. **Entity Analysis**: Examines identified database entities for business relevance
+2. **Concept Loading**: Loads business concepts from YAML configuration files
+3. **Semantic Matching**: Uses OpenAI embeddings to match user queries to business concepts
+4. **Business Rule Application**: Applies domain-specific instructions and constraints
+5. **Join Validation**: Ensures required table relationships are available
+6. **Context Assembly**: Combines all business intelligence into comprehensive guidance
+
+#### Business Concepts Definition
+
+Business concepts are defined in YAML files with structured metadata:
+
+```yaml
+concepts:
+  - name: "customer_analysis"
+    description: "Customer data analysis including account activity and demographics"
+    target: ["customers", "accounts", "transactions"]
+    instructions: |
+      - Include customer identification and contact information
+      - Calculate total account balances and transaction frequency
+      - Apply appropriate date filters for analysis periods
+    required_joins:
+      - "customers.customer_id = accounts.customer_id"
+      - "accounts.account_id = transactions.account_id"
+    examples:
+      - query: "List all customers with their total account balances"
+        context: "Customer financial overview"
+        business_logic: "Join customers and accounts, sum balances per customer"
+```
+
+#### Using Business Context
+
+##### Basic Usage
+
+```python
+from src.agents.business import BusinessContextAgent
+
+# Initialize business context agent
+business_agent = BusinessContextAgent(
+    concepts_dir="src/agents/concepts"
+)
+
+# Gather business context for a query
+context = business_agent.gather_business_context(
+    user_query="customer retention analysis",
+    applicable_entities=["customers", "orders", "products"]
+)
+```
+
+##### Context Response Structure
+
+```json
+{
+  "success": true,
+  "matched_concepts": [
+    {
+      "name": "customer_analysis",
+      "description": "Customer data analysis and reporting",
+      "similarity": 0.85,
+      "target_entities": ["customers", "accounts"],
+      "required_joins": ["customers.customer_id = accounts.customer_id"]
+    }
+  ],
+  "business_instructions": [
+    {
+      "concept": "customer_analysis",
+      "instructions": "Include customer demographics, apply date filters",
+      "similarity": 0.85
+    }
+  ],
+  "join_validation": {
+    "customer_analysis": {
+      "valid": true,
+      "satisfied_joins": ["customers.customer_id = accounts.customer_id"],
+      "unsatisfied_joins": []
+    }
+  }
+}
+```
+
+#### Advanced Features
+
+##### Semantic Concept Matching
+
+The Business Context Agent uses OpenAI embeddings for sophisticated concept matching:
+
+- **Similarity Scoring**: Calculates semantic similarity between user queries and business concepts
+- **Threshold Configuration**: Configurable similarity thresholds for concept relevance
+- **Multi-Factor Analysis**: Combines semantic similarity with business logic relevance
+
+##### Join Validation
+
+Automatic validation ensures that business concepts can be applied:
+
+```python
+# Example join validation result
+join_validation = {
+    "customer_analysis": {
+        "valid": True,
+        "satisfied_joins": ["customers.customer_id = accounts.customer_id"],
+        "unsatisfied_joins": [],
+        "missing_entities": []
+    }
+}
+```
+
+##### Entity Coverage Analysis
+
+Tracks how well business concepts cover identified entities:
+
+```python
+entity_coverage = {
+    "total_entities": 3,
+    "entities_with_concepts": 2,
+    "coverage_percentage": 66.7
+}
+```
+
+#### Configuration Options
+
+##### Environment Variables
+
+```env
+# Business concepts directory
+CONCEPTS_DIRECTORY="src/agents/concepts"
+
+# Concept matching settings
+CONCEPT_SIMILARITY_THRESHOLD="0.5"
+MAX_CONCEPTS_PER_QUERY="5"
+```
+
+##### Initialization Parameters
+
+```python
+BusinessContextAgent(
+    indexer_agent=indexer_agent,          # For semantic search
+    concepts_dir="custom/concepts",       # Custom concepts directory
+    shared_llm_model=llm_model,          # Shared LLM instance
+    shared_concept_loader=loader,         # Shared concept loader
+    shared_concept_matcher=matcher        # Shared concept matcher
+)
+```
+
 ### 🎯 Business Context Capabilities
 
 - **📋 Concept Management**: Loads and manages business concepts from YAML files
